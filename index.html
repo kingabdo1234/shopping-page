@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOVA MARKET | Premium Electronics & Lifestyle</title>
+  <meta name="description" content="Discover premium electronics, audio gear, smart devices, and modern lifestyle essentials at NOVA MARKET.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="announcement-bar">
+    <div class="container announcement-content">
+      <p>🚚 Free express shipping on orders over $75. Use code <strong>NOVAFREE</strong> at checkout.</p>
+      <button class="announcement-close" id="closeAnnouncement" aria-label="Dismiss announcement">&times;</button>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container header-container">
+      <a href="#" class="brand-logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">NOVA<span>MARKET</span></span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#shop" class="nav-link">Shop</a>
+        <a href="#categories" class="nav-link">Categories</a>
+        <a href="#benefits" class="nav-link">Why Us</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search products..." aria-label="Search products">
+          <button id="searchBtn" aria-label="Execute search">🔍</button>
+        </div>
+
+        <button class="icon-btn" id="wishlistHeaderBtn" aria-label="View Wishlist">
+          ❤️ <span class="badge" id="wishlistCount">0</span>
+        </button>
+
+        <button class="icon-btn" id="cartHeaderBtn" aria-label="Open Shopping Cart">
+          🛒 <span class="badge" id="cartCount">0</span>
+        </button>
+
+        <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" id="hero">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <span class="badge-promo">✨ NEW COLLECTION 2026</span>
+          <h1 class="hero-title">Elevate Your Daily Lifestyle & Workspace</h1>
+          <p class="hero-subtitle">Discover high-grade acoustic gear, minimal desk setup accessories, and next-gen smart devices built for performance and modern living.</p>
+          <div class="hero-actions">
+            <a href="#shop" class="btn btn-primary">Shop Now</a>
+            <a href="#categories" class="btn btn-outline">Explore Categories</a>
+          </div>
+        </div>
+        <div class="hero-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1000&q=80" alt="High-end noise-canceling wireless headphones" class="hero-img">
+        </div>
+      </div>
+    </section>
+
+    <section class="categories" id="categories">
+      <div class="container">
+        <div class="section-header">
+          <h2>Browse By Category</h2>
+          <p>Find exact tech and lifestyle gear categorized for easy browsing.</p>
+        </div>
+        <div class="category-grid">
+          <button class="category-card active" data-category="all">
+            <div class="cat-icon">⚡</div>
+            <h3>All Products</h3>
+            <p>12 Items</p>
+          </button>
+          <button class="category-card" data-category="Electronics">
+            <div class="cat-icon">🎧</div>
+            <h3>Electronics</h3>
+            <p>Acoustics & Devices</p>
+          </button>
+          <button class="category-card" data-category="Accessories">
+            <div class="cat-icon">⌚</div>
+            <h3>Accessories</h3>
+            <p>Smart Wearables & Cables</p>
+          </button>
+          <button class="category-card" data-category="Home & Living">
+            <div class="cat-icon">💡</div>
+            <h3>Home & Living</h3>
+            <p>Desk Lights & Decor</p>
+          </button>
+          <button class="category-card" data-category="Lifestyle">
+            <div class="cat-icon">🎒</div>
+            <h3>Lifestyle</h3>
+            <p>Everyday Carry Bags</p>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="shop-section" id="shop">
+      <div class="container">
+        <div class="shop-controls">
+          <div class="shop-title">
+            <h2>Featured Catalog</h2>
+            <p id="catalogCount">Showing 12 items</p>
+          </div>
+          <div class="filter-toolbar">
+            <div class="filter-group">
+              <label for="sortSelect">Sort By:</label>
+              <select id="sortSelect" class="form-select">
+                <option value="default">Featured</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="rating-desc">Highest Rated</option>
+                <option value="name-asc">Name: A to Z</option>
+              </select>
+            </div>
+            <button id="clearFiltersBtn" class="btn btn-secondary btn-sm">Clear Filters</button>
+          </div>
+        </div>
+
+        <div class="product-grid" id="productGrid">
+
+        </div>
+->
+        <div class="empty-catalog hidden" id="emptyCatalog">
+          <div class="empty-icon">🔍</div>
+          <h3>No matching products found</h3>
+          <p>Try adjusting your search keyword or clearing category filters.</p>
+          <button class="btn btn-primary" id="resetCatalogBtn">Reset All Filters</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits / Trust Section -->
+    <section class="benefits" id="benefits">
+      <div class="container">
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="b-icon">🛡️</div>
+            <h3>Secure Shopping</h3>
+            <p>Client-side SSL layout standards. Privacy focused experience.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="b-icon">🚚</div>
+            <h3>Fast Global Shipping</h3>
+            <p>Reliable tracked delivery on all domestic and international packages.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="b-icon">🔄</div>
+            <h3>30-Day Money Back</h3>
+            <p>Hassle-free 30-day return window for verified product orders.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="b-icon">💬</div>
+            <h3>Dedicated Support</h3>
+            <p>24/7 responsive customer service team ready to assist your queries.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+      <div class="container newsletter-container">
+        <h2>Stay Updated with NOVA</h2>
+        <p>Subscribe to receive exclusive deals, new catalog updates, and setup inspiration.</p>
+        <form class="newsletter-form" id="newsletterForm" novalidate>
+          <input type="email" id="newsletterEmail" placeholder="Enter your email address" required aria-label="Email address">
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+        <div class="feedback-msg hidden" id="newsletterFeedback"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <a href="#" class="brand-logo footer-logo">
+          <span class="logo-icon">⚡</span>
+          <span class="logo-text">NOVA<span>MARKET</span></span>
+        </a>
+        <p class="footer-desc">NOVA MARKET delivers high-quality electronics, accessories, and modern lifestyle essentials designed to elevate daily productivity and aesthetic comfort.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Navigation</h4>
+        <ul>
+          <li><a href="#hero">Home Page</a></li>
+          <li><a href="#shop">Product Shop</a></li>
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="#benefits">Why Shop With Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Customer Care</h4>
+        <ul>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Returns & Exchanges</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect & Support</h4>
+        <p>📍 Demo Address: 100 Tech Plaza, SF</p>
+        <p>✉️ support@novamarket.demo</p>
+        <div class="social-links">
+          <a href="#" aria-label="Twitter">🌐</a>
+          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="LinkedIn">💼</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 NOVA MARKET. Portfolio Demonstration Project. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Quick View Modal -->
+  <div class="modal-overlay hidden" id="quickViewModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-container">
+      <button class="modal-close" id="closeQuickView" aria-label="Close modal">&times;</button>
+      <div class="modal-body" id="modalContent">
+        <!-- Content dynamic via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Drawer Overlay -->
+  <div class="drawer-overlay hidden" id="cartOverlay"></div>
+
+  <!-- Shopping Cart Side Drawer -->
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-label="Shopping Cart">
+    <div class="drawer-header">
+      <h3>Your Shopping Cart (<span id="drawerItemCount">0</span>)</h3>
+      <button class="drawer-close" id="closeCartDrawer" aria-label="Close cart">&times;</button>
+    </div>
+
+    <div class="shipping-progress">
+      <p id="shippingProgressText">Add $75.00 more to qualify for FREE Shipping!</p>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="shippingProgressBar"></div>
+      </div>
+    </div>
+
+    <div class="drawer-body" id="cartItemsList">
+      <!-- Cart items rendered here -->
+    </div>
+
+    <div class="drawer-footer">
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Subtotal:</span>
+          <strong id="cartSubtotal">$0.00</strong>
+        </div>
+        <div class="summary-row">
+          <span>Estimated Shipping:</span>
+          <span id="cartShippingCost">Calculated at checkout</span>
+        </div>
+      </div>
+      <div class="drawer-actions">
+        <button class="btn btn-primary btn-block" id="openCheckoutBtn">Proceed to Checkout</button>
+        <button class="btn btn-outline btn-block" id="clearCartBtn">Clear Cart</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Checkout Modal -->
+  <div class="modal-overlay hidden" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+    <div class="modal-container checkout-container">
+      <button class="modal-close" id="closeCheckout" aria-label="Close checkout">&times;</button>
+      <div class="checkout-grid">
+        <div class="checkout-form-col">
+          <h2 id="checkoutTitle">Customer & Shipping Information</h2>
+          <div class="demo-notice">
+            <strong>🔒 Demo Interface Notice:</strong> This is a portfolio demonstration website. No payment information is stored or submitted to real gateways.
+          </div>
+          <form id="checkoutForm" novalidate>
+            <div class="form-group">
+              <label for="custName">Full Name *</label>
+              <input type="text" id="custName" required placeholder="John Doe">
+              <span class="error-msg" id="nameError"></span>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="custEmail">Email Address *</label>
+                <input type="email" id="custEmail" required placeholder="john@example.com">
+                <span class="error-msg" id="emailError"></span>
+              </div>
+              <div class="form-group">
+                <label for="custPhone">Phone Number *</label>
+                <input type="tel" id="custPhone" required placeholder="+1 (555) 000-0000">
+                <span class="error-msg" id="phoneError"></span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="custAddress">Shipping Address *</label>
+              <input type="text" id="custAddress" required placeholder="123 Main St, Apt 4B">
+              <span class="error-msg" id="addressError"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Complete Demo Order</button>
+          </form>
+        </div>
+
+        <div class="checkout-summary-col">
+          <h3>Order Summary</h3>
+          <div class="checkout-items-preview" id="checkoutItemsPreview">
+            <!-- Rendered JS items -->
+          </div>
+          <div class="checkout-breakdown">
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span id="checkoutSubtotal">$0.00</span>
+            </div>
+            <div class="summary-row">
+              <span>Shipping</span>
+              <span id="checkoutShipping">$0.00</span>
+            </div>
+            <div class="summary-row total-row">
+              <span>Total</span>
+              <strong id="checkoutTotal">$0.00</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Confirmation Modal -->
+  <div class="modal-overlay hidden" id="confirmationModal">
+    <div class="modal-container confirmation-box">
+      <div class="conf-icon">🎉</div>
+      <h2>Demo Order Placed Successfully!</h2>
+      <p>Thank you for testing the checkout process on <strong>NOVA MARKET</strong>.</p>
+      <div class="conf-details" id="confDetails">
+        <!-- Order details populated via JS -->
+      </div>
+      <p class="demo-disclaimer"><em>Note: This was a front-end simulation. No real charge was processed and no products will be shipped.</em></p>
+      <button class="btn btn-primary" id="closeConfirmationBtn">Return to Shop</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
