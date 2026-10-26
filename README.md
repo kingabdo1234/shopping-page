@@ -35,3 +35,4 @@ nova-market/
 ├── README.md             # Project documentation and deployment guide
 └── docs/
     └── image-sources.md  # Unsplash image asset licensing references# shopping_website
+# shopping-page
