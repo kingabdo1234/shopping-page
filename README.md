@@ -34,4 +34,4 @@ nova-market/
 ├── script.js            # Core interactive logic and application state
 ├── README.md             # Project documentation and deployment guide
 └── docs/
-    └── image-sources.md  # Unsplash image asset licensing references
+    └── image-sources.md  # Unsplash image asset licensing references# shopping_website
